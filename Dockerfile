@@ -1,9 +1,10 @@
 FROM alpine:3.8
 LABEL maintainer="Loy B. <lonord.b@gmail.com>"
-ENV VERSION 1.0
+ENV VERSION 1.1
 RUN ARCH= && case "$(arch)" in \
 	x86_64) ARCH='amd64';; \
 	armv7l) ARCH='arm';; \
+	aarch64) ARCH='arm64';; \
 	*) echo "unsupported architecture"; exit 1 ;; \
 	esac \
 	&& apk add --no-cache --virtual .build-deps wget \
